@@ -51,3 +51,16 @@ Say you wanted to remove last added map. You would use some code similar to this
 
     var list = Mappa.mapList;
     Mappa.removeMap(list[list.length - 1]);
+
+# Good things to map to
+
+I would recommend downloading the latest version of the following scripts and mapping to them.
+They make a good starting point for a good tool kit.
+
+ * [Sizzle](http://sizzlejs.com/) for the selector engine
+ * [jsAnim](http://jsanim.com/) for the animation
+ * [json2.js](https://github.com/douglascrockford/JSON-js/blob/master/json2.js) for JSON manipulation
+ * [Cookie toolbox](http://javascript.about.com/library/blcookie.htm) for handling cookies
+ * [AJAX toolbox](http://ajaxtoolbox.com/) for working with AJAX
+ * [Cross browser events](http://www.dynamic-tools.net/toolbox/crossBrowserEvents/) for managing events
+ * [Browser detect](http://www.quirksmode.org/js/detect.html) for working out what the client is using
