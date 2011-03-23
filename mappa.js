@@ -7,4 +7,9 @@
 	var Mappa = {
 		
 	};
+	
+	// Make sure it has not already been initialised
+	if(typeof window.Mappa === 'undefined') {
+		
+	}
 }());
