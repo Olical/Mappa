@@ -6,7 +6,14 @@
 	// Initiate the Mappa object
 	var Mappa = {
 		addMap: function(name, mapTo) {
-			
+			// First we check if the name is in use
+			if(this.hasOwnProperty(name) === false) {
+				
+			}
+			else {
+				// It exists, return false
+				return false;
+			}
 		},
 		removeMap: function(name) {
 			
