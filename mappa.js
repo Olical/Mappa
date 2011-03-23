@@ -32,7 +32,8 @@
 				// It does not exist, return false
 				return false;
 			}
-		}
+		},
+		mapList: []
 	};
 	
 	// Check if the window variable exists
