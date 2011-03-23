@@ -23,10 +23,18 @@
 			}
 		},
 		removeMap: function(name) {
+			// Initialise any required variables
+			var i = null;
+			
 			// Check if the function exists
 			if(this.hasOwnProperty(name) === true) {
 				// Remove the map
 				delete this[name];
+				
+				// Loop through the map list
+				for(i = 0; i < this.mapList.length; i++) {
+					
+				}
 				
 				// Return true if it has been removed
 				return true;
