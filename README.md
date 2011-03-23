@@ -17,7 +17,7 @@ Follow [me on Twitter](http://twitter.com/#!/OliverCaldwell) if you want.
 Mappa works in just about any browser that has JavaScript enabled.
 The only thing you need to check for compatibility is the functions you are mapping to.
 
-Mappa also works in NodeJS environments. You can grab the mappa instance like so.
+Mappa also works in NodeJS environments. You can grab the Mappa instance like so.
 
     var Mappa = requre('./path-to-file/mappa').Mappa;
 
