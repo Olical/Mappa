@@ -17,7 +17,15 @@
 			}
 		},
 		removeMap: function(name) {
-			
+			// Check if the function exists
+			if(this.hasOwnProperty(name) === true) {
+				// Remove the map
+				delete this[name];
+			}
+			else {
+				// It does not exist, return false
+				return false;
+			}
 		}
 	};
 	
