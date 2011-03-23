@@ -33,7 +33,10 @@
 				
 				// Loop through the map list
 				for(i = 0; i < this.mapList.length; i++) {
-					
+					// Check if the names match
+					if(name === this.mapList[i]) {
+						
+					}
 				}
 				
 				// Return true if it has been removed
