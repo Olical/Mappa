@@ -18,7 +18,7 @@ The only thing you need to check for compatibility is the functions you are mapp
 
 Mappa also works in NodeJS environments. You can grab the mapper instance like so.
 
-    var Mappa = requre('./path-to-file/mappa').mappa;
+    var Mappa = requre('./path-to-file/mappa').Mappa;
 
 Using it with NodeJS enables you to have multiple toolkits under what ever names you want.
 Of corse you can accomplish this multiple toolkit feature in browsers too, this would be done like so.
