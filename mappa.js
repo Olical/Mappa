@@ -10,6 +10,9 @@
 			if(this.hasOwnProperty(name) === false) {
 				// Add the map
 				this[name] = mapTo;
+				
+				// Return true if it has been added
+				return true;
 			}
 			else {
 				// It exists, return false
@@ -21,6 +24,9 @@
 			if(this.hasOwnProperty(name) === true) {
 				// Remove the map
 				delete this[name];
+				
+				// Return true if it has been removed
+				return true;
 			}
 			else {
 				// It does not exist, return false
