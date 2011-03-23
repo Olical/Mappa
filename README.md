@@ -11,6 +11,20 @@ This allows you to build your very own custom set of tools.
 That would be me, [Oliver Caldwell](http://flowdev.co.uk/).
 I just came up with the idea on a train home from London.
 
+# Compatibility
+
+Mappa works in just about any browser that has JavaScript enabled.
+The only thing you need to check for compatibility is the functions you are mapping to.
+
+Mappa also works in NodeJS environments. You can grab the mapper instance like so.
+
+    var Mappa = requre('path-to-file/mappa').mappa;
+
+Using it with NodeJS enables you to have multiple toolkits under what ever names you want.
+Of corse you can accomplish this multiple toolkit feature in browsers too, this would be done like so.
+
+    window.ToolkitName = Mappa;
+
 # Documentation
 
 ## General
