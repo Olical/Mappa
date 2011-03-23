@@ -8,9 +8,16 @@
 		
 	};
 	
-	// Make sure it has not already been initialised
-	if(typeof window.Mappa === 'undefined') {
-		// Expose the object
-		window.Mappa = Mappa;
+	// Check if the window variable exists
+	if(typeof window === 'undefined') {
+		// This means it is a node environment, so place it in the exports
+		exports.Mappa = Mappa;
+	}
+	else {
+		// Make sure it has not already been initialised
+		if(typeof window.Mappa === 'undefined') {
+			// Expose the object
+			window.Mappa = Mappa;
+		}
 	}
 }());
