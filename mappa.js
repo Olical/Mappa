@@ -5,7 +5,12 @@
 (function() {
 	// Initiate the Mappa object
 	var Mappa = {
-		
+		addMap: function(name, mapTo) {
+			
+		},
+		removeMap: function(name) {
+			
+		}
 	};
 	
 	// Check if the window variable exists
