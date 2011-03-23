@@ -3,5 +3,8 @@
  * Copyright 2011, Oliver Caldwell (flowdev.co.uk)
  */
 (function() {
-	
+	// Initiate the Mappa object
+	var Mappa = {
+		
+	};
 }());
