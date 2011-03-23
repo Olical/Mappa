@@ -10,6 +10,7 @@
 	
 	// Make sure it has not already been initialised
 	if(typeof window.Mappa === 'undefined') {
-		
+		// Expose the object
+		window.Mappa = Mappa;
 	}
 }());
