@@ -11,6 +11,9 @@
 				// Add the map
 				this[name] = mapTo;
 				
+				// Push the new name to the map list
+				this.mapList.push(name);
+				
 				// Return true if it has been added
 				return true;
 			}
