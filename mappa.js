@@ -35,7 +35,8 @@
 				for(i = 0; i < this.mapList.length; i++) {
 					// Check if the names match
 					if(name === this.mapList[i]) {
-						
+						// Remove the map name from the list
+						this.mapList.splice(i, 1);
 					}
 				}
 				
