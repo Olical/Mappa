@@ -10,6 +10,7 @@ This allows you to build your very own custom set of tools.
 
 That would be me, [Oliver Caldwell](http://flowdev.co.uk/).
 I just came up with the idea on a train home from London.
+Follow [me on Twitter](http://twitter.com/#!/OliverCaldwell) if you want.
 
 # Compatibility
 
