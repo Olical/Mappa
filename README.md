@@ -23,6 +23,13 @@ Mappa also works in NodeJS environments. You can grab the Mappa instance like so
 
     var Mappa = requre('./path-to-file/mappa').Mappa;
 
+When using it within NodeJS you can not use the `addAlias` or `removeAlias` functions.
+This is because aliases are stored in the window object.
+
+So if you want to add and remove aliases in node you will just have to use something along these lines.
+
+    var myAlias = Mappa;
+
 Using it with NodeJS enables you to have multiple toolkits under what ever names you want.
 Of corse you can accomplish this multiple toolkit feature in browsers too, this would be done like so.
 

@@ -3,11 +3,29 @@
  * Copyright 2011, Oliver Caldwell (flowdev.co.uk)
  */
 (function() {
+	// Function to remove the specified value from an array
+	function removeValue(array, search) {
+		// Set up any variables
+		var i = null;
+		
+		// Loop through all values
+		for(i = 0; i < array.length; i++) {
+			// Check if the value matches the search
+			if(array[i] === search) {
+				// Remove the right value
+				array.splice(i, 1);
+				
+				// Return the array
+				return array;
+			}
+		}
+	}
+	
 	// Initiate the Mappa object
 	var Mappa = {
 		addMap: function(name, mapTo) {
 			// First we check if the name is in use
-			if(this.hasOwnProperty(name) === false) {
+			if(this.mapList.join().indexOf(name) === -1) {
 				// Add the map
 				this[name] = mapTo;
 				
@@ -27,18 +45,12 @@
 			var i = null;
 			
 			// Check if the function exists
-			if(this.hasOwnProperty(name) === true) {
+			if(this.mapList.join().indexOf(name) !== -1) {
 				// Remove the map
 				delete this[name];
 				
-				// Loop through the map list
-				for(i = 0; i < this.mapList.length; i++) {
-					// Check if the names match
-					if(name === this.mapList[i]) {
-						// Remove the map name from the list
-						this.mapList.splice(i, 1);
-					}
-				}
+				// Remove the the map from the list
+				this.mapList = removeValue(this.mapList, name);
 				
 				// Return true if it has been removed
 				return true;
@@ -50,7 +62,7 @@
 		},
 		addAlias: function(name) {
 			// Make sure the specified name is not in use
-			if(window.hasOwnProperty(name) === false) {
+			if(this.aliasList.join().indexOf(name) === -1) {
 				// Create the alias
 				window[name] = this;
 				
@@ -67,28 +79,15 @@
 		},
 		removeAlias: function(name) {
 			// Make sure the alias exists
-			if(window.hasOwnProperty(name)) {
-				// Make sure it is a Mappa object by checking for mapList
-				if(window[name].hasOwnProperty('mapList')) {
-					// Remove the object
-					delete window[name];
-					
-					// Loop through the alias list
-					for(i = 0; i < this.aliasList.length; i++) {
-						// Check if the names match
-						if(name === this.aliasList[i]) {
-							// Remove the alias name from the list
-							this.aliasList.splice(i, 1);
-						}
-					}
-					
-					// Removal was a success so return true
-					return true;
-				}
-				else {
-					// It is not a Mappa object, return false
-					return false
-				}
+			if(this.aliasList.join().indexOf(name) !== -1) {
+				// Remove the object
+				delete window[name];
+				
+				// Remove the the alias from the list
+				this.aliasList = removeValue(this.aliasList, name);
+				
+				// Removal was a success so return true
+				return true;
 			}
 			else {
 				// It does not exist, return false
