@@ -54,6 +54,9 @@
 				// Create the alias
 				window[name] = this;
 				
+				// Push it to the list
+				this.aliasList.push(name);
+				
 				// Alias creation was a success, return true
 				return true;
 			}
