@@ -27,7 +27,7 @@
 			var i = null;
 			
 			// Check if the function exists
-			if(this.hasOwnProperty(name) === true) {
+			if(this.mapList.join.indexOf(name) !== -1) {
 				// Remove the map
 				delete this[name];
 				
