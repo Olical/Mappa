@@ -51,6 +51,9 @@
 		addAlias: function(name) {
 			// Make sure the specified name is not in use
 			if(window.hasOwnProperty(name) === false) {
+				// Create the alias
+				window[name] = this;
+				
 				// Alias creation was a success, return true
 				return true;
 			}
