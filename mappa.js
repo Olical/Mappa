@@ -1,5 +1,5 @@
 /**
- * @preserve Mappa v1.0.0 (github.com/Wolfy87/Mappa)
+ * @preserve Mappa v1.1.0 (github.com/Wolfy87/Mappa)
  * Copyright 2011, Oliver Caldwell (flowdev.co.uk)
  */
 (function() {
@@ -48,6 +48,54 @@
 				return false;
 			}
 		},
+		addAlias: function(name) {
+			// Make sure the specified name is not in use
+			if(window.hasOwnProperty(name) === false) {
+				// Create the alias
+				window[name] = this;
+				
+				// Push it to the list
+				this.aliasList.push(name);
+				
+				// Alias creation was a success, return true
+				return true;
+			}
+			else {
+				// It is in use, return false
+				return false;
+			}
+		},
+		removeAlias: function(name) {
+			// Make sure the alias exists
+			if(window.hasOwnProperty(name)) {
+				// Make sure it is a Mappa object by checking for mapList
+				if(window[name].hasOwnProperty('mapList')) {
+					// Remove the object
+					delete window[name];
+					
+					// Loop through the alias list
+					for(i = 0; i < this.aliasList.length; i++) {
+						// Check if the names match
+						if(name === this.aliasList[i]) {
+							// Remove the alias name from the list
+							this.aliasList.splice(i, 1);
+						}
+					}
+					
+					// Removal was a success so return true
+					return true;
+				}
+				else {
+					// It is not a Mappa object, return false
+					return false
+				}
+			}
+			else {
+				// It does not exist, return false
+				return false;
+			}
+		},
+		aliasList: [],
 		mapList: []
 	};
 	
@@ -58,7 +106,7 @@
 	}
 	else {
 		// Make sure it has not already been initialised
-		if(typeof window.Mappa === 'undefined') {
+		if(window.hasOwnProperty('Mappa') === false) {
 			// Expose the object
 			window.Mappa = Mappa;
 		}
