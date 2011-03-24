@@ -3,6 +3,24 @@
  * Copyright 2011, Oliver Caldwell (flowdev.co.uk)
  */
 (function() {
+	// Function to remove the specified value from an array
+	function removeValue(array, search) {
+		// Set up any variables
+		var i = null;
+		
+		// Loop through all values
+		for(i = 0; i < array.length; i++) {
+			// Check if the value matches the search
+			if(array[i] === search) {
+				// Remove the right value
+				array.splice(i, 1);
+				
+				// Return the array
+				return array;
+			}
+		}
+	}
+	
 	// Initiate the Mappa object
 	var Mappa = {
 		addMap: function(name, mapTo) {
@@ -31,8 +49,8 @@
 				// Remove the map
 				delete this[name];
 				
-				// Join the list, remove the name, remove multiple commas and then split by commas
-				this.mapList = this.mapList.join().replace(name, '').replace(',,', ',').split(',');
+				// Remove the the map from the list
+				this.mapList = removeValue(this.mapList, name);
 				
 				// Return true if it has been removed
 				return true;
@@ -65,8 +83,8 @@
 				// Remove the object
 				delete window[name];
 				
-				// Join the list, remove the name, remove multiple commas and then split by commas
-				this.aliasList = this.aliasList.join().replace(name, '').replace(',,', ',').split(',');
+				// Remove the the alias from the list
+				this.aliasList = removeValue(this.aliasList, name);
 				
 				// Removal was a success so return true
 				return true;
