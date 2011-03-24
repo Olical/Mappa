@@ -63,7 +63,14 @@
 			}
 		},
 		removeAlias: function(name) {
-			
+			// Make sure the alias exists
+			if(window.hasOwnProperty(name)) {
+				
+			}
+			else {
+				// It does not exist, return false
+				return false;
+			}
 		},
 		mapList: []
 	};
