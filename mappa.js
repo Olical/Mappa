@@ -67,28 +67,21 @@
 		},
 		removeAlias: function(name) {
 			// Make sure the alias exists
-			if(window.hasOwnProperty(name)) {
-				// Make sure it is a Mappa object by checking for mapList
-				if(window[name].hasOwnProperty('mapList')) {
-					// Remove the object
-					delete window[name];
-					
-					// Loop through the alias list
-					for(i = 0; i < this.aliasList.length; i++) {
-						// Check if the names match
-						if(name === this.aliasList[i]) {
-							// Remove the alias name from the list
-							this.aliasList.splice(i, 1);
-						}
+			if(this.aliasList.join.indexOf(name) !== -1) {
+				// Remove the object
+				delete window[name];
+				
+				// Loop through the alias list
+				for(i = 0; i < this.aliasList.length; i++) {
+					// Check if the names match
+					if(name === this.aliasList[i]) {
+						// Remove the alias name from the list
+						this.aliasList.splice(i, 1);
 					}
-					
-					// Removal was a success so return true
-					return true;
 				}
-				else {
-					// It is not a Mappa object, return false
-					return false
-				}
+				
+				// Removal was a success so return true
+				return true;
 			}
 			else {
 				// It does not exist, return false
