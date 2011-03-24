@@ -31,14 +31,8 @@
 				// Remove the map
 				delete this[name];
 				
-				// Loop through the map list
-				for(i = 0; i < this.mapList.length; i++) {
-					// Check if the names match
-					if(name === this.mapList[i]) {
-						// Remove the map name from the list
-						this.mapList.splice(i, 1);
-					}
-				}
+				// Join the list, remove the name, remove multiple commas and then split by commas
+				this.mapList.join().replace(name, '').replace(',,', ',').split(',');
 				
 				// Return true if it has been removed
 				return true;
