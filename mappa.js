@@ -62,6 +62,9 @@
 				return false;
 			}
 		},
+		removeAlias: function(name) {
+			
+		},
 		mapList: []
 	};
 	
