@@ -72,7 +72,7 @@
 	}
 	else {
 		// Make sure it has not already been initialised
-		if(typeof window.Mappa === 'undefined') {
+		if(window.hasOwnProperty('Mappa') === false) {
 			// Expose the object
 			window.Mappa = Mappa;
 		}
