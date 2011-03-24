@@ -65,7 +65,14 @@
 		removeAlias: function(name) {
 			// Make sure the alias exists
 			if(window.hasOwnProperty(name)) {
-				
+				// Make sure it is a Mappa object by checking for mapList
+				if(window[name].hasOwnProperty('mapList')) {
+					
+				}
+				else {
+					// It is not a Mappa object, return false
+					return false
+				}
 			}
 			else {
 				// It does not exist, return false
