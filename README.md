@@ -112,3 +112,15 @@ They make a good starting point for a good tool kit.
  * [AJAX toolbox](http://ajaxtoolbox.com/) for working with AJAX
  * [Cross browser events](http://www.dynamic-tools.net/toolbox/crossBrowserEvents/) for managing events
  * [Browser detect](http://www.quirksmode.org/js/detect.html) for working out what the client is using
+
+# An example set up
+
+I have set up an example which uses all of the functions listed above.
+You will have to go onto the individual websites for documentation.
+And look at the bottom of the file for what is mapped to what.
+
+You can download it from this [Gist](https://gist.github.com/885208).
+
+Pull out stuff you don't need and add things you do. That's the whole idea of this.
+
+Wrapping your most used functions into one pretty object.
