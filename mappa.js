@@ -83,6 +83,7 @@
 				return false;
 			}
 		},
+		aliasList: [],
 		mapList: []
 	};
 	
