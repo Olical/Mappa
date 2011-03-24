@@ -7,7 +7,7 @@
 	var Mappa = {
 		addMap: function(name, mapTo) {
 			// First we check if the name is in use
-			if(this.hasOwnProperty(name) === false) {
+			if(this.mapList.join.indexOf(name) === -1) {
 				// Add the map
 				this[name] = mapTo;
 				
