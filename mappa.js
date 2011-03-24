@@ -32,7 +32,7 @@
 				delete this[name];
 				
 				// Join the list, remove the name, remove multiple commas and then split by commas
-				this.mapList.join().replace(name, '').replace(',,', ',').split(',');
+				this.mapList = this.mapList.join().replace(name, '').replace(',,', ',').split(',');
 				
 				// Return true if it has been removed
 				return true;
@@ -66,7 +66,7 @@
 				delete window[name];
 				
 				// Join the list, remove the name, remove multiple commas and then split by commas
-				this.aliasList.join().replace(name, '').replace(',,', ',').split(',');
+				this.aliasList = this.aliasList.join().replace(name, '').replace(',,', ',').split(',');
 				
 				// Removal was a success so return true
 				return true;
