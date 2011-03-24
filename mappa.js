@@ -73,6 +73,15 @@
 					// Remove the object
 					delete window[name];
 					
+					// Loop through the alias list
+					for(i = 0; i < this.aliasList.length; i++) {
+						// Check if the names match
+						if(name === this.aliasList[i]) {
+							// Remove the alias name from the list
+							this.aliasList.splice(i, 1);
+						}
+					}
+					
 					// Removal was a success so return true
 					return true;
 				}
