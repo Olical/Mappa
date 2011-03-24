@@ -6,6 +6,8 @@ So you have an object of functions all named how you want them.
 
 This allows you to build your very own custom set of tools.
 
+You can even create aliases of the Mappa object so you can give it the names you want.
+
 # Who wrote this thing?
 
 That would be me, [Oliver Caldwell](http://flowdev.co.uk/).
@@ -30,7 +32,7 @@ Of corse you can accomplish this multiple toolkit feature in browsers too, this 
 
 ## General
 
-Mappa consists of two base functions. `addMap` and `removeMap`. It also stores an array of the current maps in `mapList`.
+Mappa consists of four base functions. `addMap`, `removeMap`, `addAlias` and `removeAlias`. It also stores an array of the current maps in `mapList` and of the current aliases in `aliasList`.
 
 ## Adding a map
 
@@ -53,6 +55,8 @@ Now the map is object oriented so your calling code would look like this.
 
     Mappa.json.encode({ foo: 'bar' });
 
+It will return false if the name is in use.
+
 ## Removing a map
 
 Removing a map is even simpler than adding them.
@@ -66,6 +70,35 @@ Say you wanted to remove last added map. You would use some code similar to this
 
     var list = Mappa.mapList;
     Mappa.removeMap(list[list.length - 1]);
+
+It will return false if the name does not exist.
+
+## Adding an alias
+
+All you have to do is run the `addAlias` function with the name as the sole argument.
+
+    Mappa.addAlias('Toolbox');
+
+And now you can access the `Mappa` object through the `Toolbox` object. Any changes and maps you make to any will be shared across all of the aliases. They are all the same object just references to the `Mappa` object.
+
+It will return false if the name is in use.
+
+## Removing an alias
+
+This works exactly the same as removing a map. Just run the `removeAlias` function with the name of the alias as the argument.
+
+    Mappa.removeAlias('Toolbox');
+
+It will return false if not found or if it is not a Mappa alias.
+
+Say you wanted to remove all of the aliases, you could use this code which utilises the `aliasList` array.
+
+    var list = Mappa.aliasList,
+        i = null;
+    
+    for(i = 0; i < list.length; i++) {
+        Mappa.removeAlias(list[i]);
+    }
 
 # Good things to map to
 
