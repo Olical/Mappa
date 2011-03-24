@@ -7,7 +7,7 @@
 	var Mappa = {
 		addMap: function(name, mapTo) {
 			// First we check if the name is in use
-			if(this.mapList.join.indexOf(name) === -1) {
+			if(this.mapList.join().indexOf(name) === -1) {
 				// Add the map
 				this[name] = mapTo;
 				
@@ -27,7 +27,7 @@
 			var i = null;
 			
 			// Check if the function exists
-			if(this.mapList.join.indexOf(name) !== -1) {
+			if(this.mapList.join().indexOf(name) !== -1) {
 				// Remove the map
 				delete this[name];
 				
@@ -50,7 +50,7 @@
 		},
 		addAlias: function(name) {
 			// Make sure the specified name is not in use
-			if(this.aliasList.join.indexOf(name) === -1) {
+			if(this.aliasList.join().indexOf(name) === -1) {
 				// Create the alias
 				window[name] = this;
 				
@@ -67,7 +67,7 @@
 		},
 		removeAlias: function(name) {
 			// Make sure the alias exists
-			if(this.aliasList.join.indexOf(name) !== -1) {
+			if(this.aliasList.join().indexOf(name) !== -1) {
 				// Remove the object
 				delete window[name];
 				
