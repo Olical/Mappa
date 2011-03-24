@@ -65,14 +65,8 @@
 				// Remove the object
 				delete window[name];
 				
-				// Loop through the alias list
-				for(i = 0; i < this.aliasList.length; i++) {
-					// Check if the names match
-					if(name === this.aliasList[i]) {
-						// Remove the alias name from the list
-						this.aliasList.splice(i, 1);
-					}
-				}
+				// Join the list, remove the name, remove multiple commas and then split by commas
+				this.aliasList.join().replace(name, '').replace(',,', ',').split(',');
 				
 				// Removal was a success so return true
 				return true;
