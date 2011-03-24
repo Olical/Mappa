@@ -67,7 +67,11 @@
 			if(window.hasOwnProperty(name)) {
 				// Make sure it is a Mappa object by checking for mapList
 				if(window[name].hasOwnProperty('mapList')) {
+					// Remove the object
+					delete window[name];
 					
+					// Removal was a success so return true
+					return true;
 				}
 				else {
 					// It is not a Mappa object, return false
