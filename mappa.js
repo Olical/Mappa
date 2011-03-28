@@ -1,5 +1,5 @@
 /**
- * @preserve Mappa v1.1.0 (github.com/Wolfy87/Mappa)
+ * @preserve Mappa v1.2.0 (github.com/Wolfy87/Mappa)
  * Copyright 2011, Oliver Caldwell (flowdev.co.uk)
  */
 (function() {
@@ -25,7 +25,7 @@
 	var Mappa = {
 		addMap: function(name, mapTo) {
 			// First we check if the name is in use
-			if(this.mapList.join().indexOf(name) === -1) {
+			if(this.hasOwnProperty(name) === false) {
 				// Add the map
 				this[name] = mapTo;
 				
@@ -62,7 +62,7 @@
 		},
 		addAlias: function(name) {
 			// Make sure the specified name is not in use
-			if(this.aliasList.join().indexOf(name) === -1) {
+			if(window.hasOwnProperty(name) === false) {
 				// Create the alias
 				window[name] = this;
 				
