@@ -25,7 +25,7 @@
 	var Mappa = {
 		addMap: function(name, mapTo) {
 			// First we check if the name is in use
-			if(this.mapList.join().indexOf(name) === -1) {
+			if(this.hasOwnProperty(name) === false) {
 				// Add the map
 				this[name] = mapTo;
 				
