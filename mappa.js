@@ -62,7 +62,7 @@
 		},
 		addAlias: function(name) {
 			// Make sure the specified name is not in use
-			if(this.aliasList.join().indexOf(name) === -1) {
+			if(window.hasOwnProperty(name) === false) {
 				// Create the alias
 				window[name] = this;
 				
