@@ -128,12 +128,23 @@
 		normalise: function(maps) {
 			// Initialise any required variables
 			var name = null,
-				built = [];
+				built = [],
+				found = null;
 			
 			// Loop through all of the maps
 			for(name in maps) {
 				// Pull the data
-				built.push(followPath(name, maps[name], this[name]));
+				found = followPath(name, maps[name], this[name]);
+				
+				// Check if it is an array
+				if(found instanceof Array) {
+					// It's an array, concat it
+					built = built.concat(found);
+				}
+				else {
+					// It's an object, push it
+					built.push(found);
+				}
 			}
 			
 			// Return the built array
