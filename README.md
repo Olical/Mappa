@@ -30,11 +30,6 @@ So if you want to add and remove aliases in node you will just have to use somet
 
     var myAlias = Mappa;
 
-Using it with NodeJS enables you to have multiple toolkits under what ever names you want.
-Of corse you can accomplish this multiple toolkit feature in browsers too, this would be done like so.
-
-    window.ToolkitName = Mappa;
-
 # Documentation
 
 ## General
