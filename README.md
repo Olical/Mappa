@@ -34,7 +34,7 @@ So if you want to add and remove aliases in node you will just have to use somet
 
 ## General
 
-Mappa consists of four base functions. `addMap`, `removeMap`, `addAlias` and `removeAlias`. It also stores an array of the current maps in `mapList` and of the current aliases in `aliasList`.
+Mappa consists of five base functions. `addMap`, `removeMap`, `addAlias`, `removeAlias` and `normalise`. It also stores an array of the current maps in `mapList` and of the current aliases in `aliasList`.
 
 ## Adding a map
 
