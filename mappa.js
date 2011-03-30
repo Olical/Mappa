@@ -44,6 +44,7 @@
 			// Loop through the path
 			for(i = 0; i < path.length; i++) {
 				// Make sure it exists before pulling it
+				// Otherwise it will skip to the next one
 				if(typeof current[path[i]] !== 'undefined') {
 					current = current[path[i]];
 					
