@@ -94,6 +94,9 @@
 				return false;
 			}
 		},
+		normalise: function(map) {
+			
+		},
 		aliasList: [],
 		mapList: []
 	};
