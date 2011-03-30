@@ -104,7 +104,11 @@ Say you wanted to remove all of the aliases, you could use this code which utili
 
 ## Using normalise
 
-Say you had these two objects.
+Say you had these two objects. You wish to have an array of objects each containing the url and title.
+
+You can use the normalise function to do this.
+
+Here are some example objects that could have been pulled from a websites API etc.
 
     var newsFeed = {
         meta: {
@@ -146,7 +150,7 @@ Don't worry, Mappa works this out and handles it!
         url: 'url'
     });
 
-All that is left to do is normalise the results and display it.
+All there is left to do is normalise the results and display it.
 
     var norm = Mappa.normalise({
         newsFeed: newsFeed,
