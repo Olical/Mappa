@@ -21,6 +21,55 @@
 		}
 	}
 	
+	// Function to search through an object following the path
+	// If it hits an array it will recurse
+	function followPath(name, map, paths) {
+		// Initialise any required variable
+		var built = {},
+			current = null,
+			path = null,
+			i = null,
+			curPath = null,
+			found = [],
+			a = null;
+		
+		// Loop through all the paths
+		for(curPath in paths) {
+			// Split the path
+			path = paths[curPath].split('.');
+			
+			// Grab the original map
+			current = map;
+			
+			// Loop through the path
+			for(i = 0; i < path.length; i++) {
+				// Make sure it exists before pulling it
+				// Otherwise it will skip to the next one
+				if(typeof current[path[i]] !== 'undefined') {
+					current = current[path[i]];
+					
+					// Check if the current value is an array
+					if(current instanceof Array) {
+						// It is, so loop, recurse, repeat
+						for(a = 0; a < current.length; a++) {
+							// Pull the data
+							found.push(followPath(name, current[a], paths));
+						}
+						
+						// Return the found values
+						return found;
+					}
+				}
+			}
+			
+			// Assign the value
+			built[curPath] = current;
+		}
+		
+		// Return the built object
+		return built;
+	}
+	
 	// Initiate the Mappa object
 	var Mappa = {
 		addMap: function(name, mapTo) {
@@ -93,6 +142,31 @@
 				// It does not exist, return false
 				return false;
 			}
+		},
+		normalise: function(maps) {
+			// Initialise any required variables
+			var name = null,
+				built = [],
+				found = null;
+			
+			// Loop through all of the maps
+			for(name in maps) {
+				// Pull the data
+				found = followPath(name, maps[name], this[name]);
+				
+				// Check if it is an array
+				if(found instanceof Array) {
+					// It's an array, concat it
+					built = built.concat(found);
+				}
+				else {
+					// It's an object, push it
+					built.push(found);
+				}
+			}
+			
+			// Return the built array
+			return built;
 		},
 		aliasList: [],
 		mapList: []
