@@ -128,6 +128,9 @@
 					
 					// Add the found value to the finished array
 					built[built.length - 1][pathName] = map;
+					
+					// Go to the top of the object again
+					map = maps[name];
 				}
 			}
 			
