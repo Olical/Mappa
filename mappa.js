@@ -94,8 +94,16 @@
 				return false;
 			}
 		},
-		normalise: function(map) {
+		normalise: function(maps) {
+			// Initialise any required variables
+			var name = null,
+				map = null;
 			
+			// Loop through all of the maps
+			for(name in maps) {
+				// Grab the current map
+				map = maps[name];
+			}
 		},
 		aliasList: [],
 		mapList: []
