@@ -98,12 +98,16 @@
 			// Initialise any required variables
 			var name = null,
 				map = null,
+				path = null,
 				built = [];
 			
 			// Loop through all of the maps
 			for(name in maps) {
 				// Grab the current map
 				map = maps[name];
+				
+				// Split the map
+				path = map.split('.');
 			}
 			
 			// Return the built array
