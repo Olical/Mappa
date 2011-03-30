@@ -111,12 +111,20 @@ Say you had these two objects.
             foo: 'bar',
             etc: 12345
         },
-        mainData: {
-            t: 'New GCC compiler',
-            more: {
-                u: 'http://reddit.com/'
+        results: [
+            {
+                t: 'New GCC compiler',
+                more: {
+                    u: 'http://reddit.com/'
+                }
+            },
+            {
+                t: 'Some other news',
+                more: {
+                    u: 'http://bbc.co.uk/'
+                }
             }
-        }
+        ]
     };
     
     var webDevelopers = {
@@ -124,11 +132,13 @@ Say you had these two objects.
         url: 'http://flowdev.co.uk/'
     }
 
-Now you need to map the data that you need.
+Now you need to map the data that you need. But as you can see, the results are within an array.
+
+Don't worry, Mappa works this out and handles it!
 
     Mappa.addMap('newsFeed', {
-        title: 'mainData.t',
-        url: 'mainData.more.u'
+        title: 'results.t',
+        url: 'results.more.u'
     });
     
     Mappa.addMap('webDevelopers', {
@@ -150,7 +160,8 @@ All that is left to do is normalise the results and display it.
 It would then show this in the console.
 
     New GCC compiler (http://reddit.com/)
-    MappaTesting.html:57Oliver Caldwell (http://flowdev.co.uk/)
+    Some other news (http://bbc.co.uk/)
+    Oliver Caldwell (http://flowdev.co.uk/)
 
 # Good things to map to
 
