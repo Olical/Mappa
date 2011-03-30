@@ -102,6 +102,28 @@ Say you wanted to remove all of the aliases, you could use this code which utili
         Mappa.removeAlias(list[i]);
     }
 
+## Using normalise
+
+Say you had these two objects.
+
+    var newsFeed = {
+        meta: {
+            foo: 'bar',
+            etc: 12345
+        },
+        mainData: {
+            t: 'New GCC compiler',
+            more: {
+                u: 'http://reddit.com/'
+            }
+        }
+    };
+    
+    var webDevelopers = {
+        title: 'Oliver Caldwell',
+        url: 'http://flowdev.co.uk/'
+    }
+
 # Good things to map to
 
 I would recommend downloading the latest version of the following scripts and mapping to them.
