@@ -97,13 +97,17 @@
 		normalise: function(maps) {
 			// Initialise any required variables
 			var name = null,
-				map = null;
+				map = null,
+				built = [];
 			
 			// Loop through all of the maps
 			for(name in maps) {
 				// Grab the current map
 				map = maps[name];
 			}
+			
+			// Return the built array
+			return built;
 		},
 		aliasList: [],
 		mapList: []
