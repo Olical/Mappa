@@ -29,7 +29,9 @@
 			current = null,
 			path = null,
 			i = null,
-			curPath;
+			curPath = null,
+			found = [],
+			a = null;
 		
 		// Loop through all the paths
 		for(curPath in paths) {
@@ -41,11 +43,26 @@
 			
 			// Loop through the path
 			for(i = 0; i < path.length; i++) {
-				current = current[path[i]];
+				// Make sure it exists before pulling it
+				if(typeof current[path[i]] !== 'undefined') {
+					current = current[path[i]];
+					
+					// Check if the current value is an array
+					if(current instanceof Array) {
+						// It is, so loop, recurse, repeat
+						for(a = 0; a < current.length; a++) {
+							// Pull the data
+							found.push(followPath(name, current[a], paths));
+						}
+						
+						// Return the found values
+						return found;
+					}
+				}
 			}
 			
 			// Assign the value
-			built[path[path.length - 1]] = current;
+			built[curPath] = current;
 		}
 		
 		// Return the built object
