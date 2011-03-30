@@ -98,22 +98,29 @@
 			// Initialise any required variables
 			var name = null,
 				map = null,
+				paths = null,
 				path = null,
 				built = [],
-				i = null;
+				i = null
+				pathName = null;
 			
 			// Loop through all of the maps
 			for(name in maps) {
 				// Grab the current map
 				map = maps[name];
 				
-				// Split the map
-				path = map.split('.');
+				// Grab the paths
+				paths = this[name];
 				
 				// Loop through all the paths
-				for(i = 0; i < path.length; i++) {
-					// Follow the path deeper into the object
-					map = map[path[i]];
+				for(pathName in paths) {
+					// Grab the current path
+					path = paths[pathName].split('.');
+					
+					// Loop through all the paths
+					for(i = 0; i < path.length; i++) {
+						
+					}
 				}
 			}
 			
