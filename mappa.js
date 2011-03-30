@@ -99,7 +99,8 @@
 			var name = null,
 				map = null,
 				path = null,
-				built = [];
+				built = [],
+				i = null;
 			
 			// Loop through all of the maps
 			for(name in maps) {
@@ -108,6 +109,12 @@
 				
 				// Split the map
 				path = map.split('.');
+				
+				// Loop through all the paths
+				for(i = 0; i < path.length; i++) {
+					// Follow the path deeper into the object
+					map = map[path[i]];
+				}
 			}
 			
 			// Return the built array
