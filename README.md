@@ -30,16 +30,11 @@ So if you want to add and remove aliases in node you will just have to use somet
 
     var myAlias = Mappa;
 
-Using it with NodeJS enables you to have multiple toolkits under what ever names you want.
-Of corse you can accomplish this multiple toolkit feature in browsers too, this would be done like so.
-
-    window.ToolkitName = Mappa;
-
 # Documentation
 
 ## General
 
-Mappa consists of four base functions. `addMap`, `removeMap`, `addAlias` and `removeAlias`. It also stores an array of the current maps in `mapList` and of the current aliases in `aliasList`.
+Mappa consists of five base functions. `addMap`, `removeMap`, `addAlias`, `removeAlias` and `normalise`. It also stores an array of the current maps in `mapList` and of the current aliases in `aliasList`.
 
 ## Adding a map
 
@@ -106,6 +101,71 @@ Say you wanted to remove all of the aliases, you could use this code which utili
     for(i = 0; i < list.length; i++) {
         Mappa.removeAlias(list[i]);
     }
+
+## Using normalise
+
+Say you had these two objects. You wish to have an array of objects each containing the url and title.
+
+You can use the normalise function to do this.
+
+Here are some example objects that could have been pulled from a websites API etc.
+
+    var newsFeed = {
+        meta: {
+            foo: 'bar',
+            etc: 12345
+        },
+        results: [
+            {
+                t: 'New GCC compiler',
+                more: {
+                    u: 'http://reddit.com/'
+                }
+            },
+            {
+                t: 'Some other news',
+                more: {
+                    u: 'http://bbc.co.uk/'
+                }
+            }
+        ]
+    };
+    
+    var webDevelopers = {
+        title: 'Oliver Caldwell',
+        url: 'http://flowdev.co.uk/'
+    }
+
+Now you need to map the data that you need. But as you can see, the results are within an array.
+
+Don't worry, Mappa works this out and handles it!
+
+    Mappa.addMap('newsFeed', {
+        title: 'results.t',
+        url: 'results.more.u'
+    });
+    
+    Mappa.addMap('webDevelopers', {
+        title: 'title',
+        url: 'url'
+    });
+
+All there is left to do is normalise the results and display it.
+
+    var norm = Mappa.normalise({
+        newsFeed: newsFeed,
+        webDevelopers: webDevelopers
+    });    
+    
+    for(var i = 0; i < norm.length; i++) {
+        console.log(norm[i].title + ' (' + norm[i].url + ')');
+    }
+
+It would then show this in the console.
+
+    New GCC compiler (http://reddit.com/)
+    Some other news (http://bbc.co.uk/)
+    Oliver Caldwell (http://flowdev.co.uk/)
 
 # Good things to map to
 
