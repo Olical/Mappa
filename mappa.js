@@ -21,6 +21,37 @@
 		}
 	}
 	
+	// Function to search through an object following the path
+	// If it hits an array it will recurse
+	function followPath(name, map, paths) {
+		// Initialise any required variable
+		var built = {},
+			current = null,
+			path = null,
+			i = null,
+			curPath;
+		
+		// Loop through all the paths
+		for(curPath in paths) {
+			// Split the path
+			path = paths[curPath].split('.');
+			
+			// Grab the original map
+			current = map;
+			
+			// Loop through the path
+			for(i = 0; i < path.length; i++) {
+				current = current[path[i]];
+			}
+			
+			// Assign the value
+			built[path[path.length - 1]] = current;
+		}
+		
+		// Return the built object
+		return built;
+	}
+	
 	// Initiate the Mappa object
 	var Mappa = {
 		addMap: function(name, mapTo) {
@@ -97,41 +128,12 @@
 		normalise: function(maps) {
 			// Initialise any required variables
 			var name = null,
-				map = null,
-				paths = null,
-				path = null,
-				built = [],
-				i = null
-				pathName = null;
+				built = [];
 			
 			// Loop through all of the maps
 			for(name in maps) {
-				// Grab the current map
-				map = maps[name];
-				
-				// Grab the paths
-				paths = this[name];
-				
-				// Push the new object to the finished array
-				built.push({});
-				
-				// Loop through all the paths
-				for(pathName in paths) {
-					// Grab the current path
-					path = paths[pathName].split('.');
-					
-					// Loop through all the paths
-					for(i = 0; i < path.length; i++) {
-						// Follow the path deeper
-						map = map[path[i]];
-					}
-					
-					// Add the found value to the finished array
-					built[built.length - 1][pathName] = map;
-					
-					// Go to the top of the object again
-					map = maps[name];
-				}
+				// Pull the data
+				built.push(followPath(name, maps[name], this[name]));
 			}
 			
 			// Return the built array
