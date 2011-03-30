@@ -112,6 +112,9 @@
 				// Grab the paths
 				paths = this[name];
 				
+				// Push the new object to the finished array
+				built.push({});
+				
 				// Loop through all the paths
 				for(pathName in paths) {
 					// Grab the current path
@@ -119,8 +122,12 @@
 					
 					// Loop through all the paths
 					for(i = 0; i < path.length; i++) {
-						
+						// Follow the path deeper
+						map = map[path[i]];
 					}
+					
+					// Add the found value to the finished array
+					built[built.length - 1][pathName] = map;
 				}
 			}
 			
