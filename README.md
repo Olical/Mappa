@@ -124,6 +124,34 @@ Say you had these two objects.
         url: 'http://flowdev.co.uk/'
     }
 
+Now you need to map the data that you need.
+
+    Mappa.addMap('newsFeed', {
+        title: 'mainData.t',
+        url: 'mainData.more.u'
+    });
+    
+    Mappa.addMap('webDevelopers', {
+        title: 'title',
+        url: 'url'
+    });
+
+All that is left to do is normalise the results and display it.
+
+    var norm = Mappa.normalise({
+        newsFeed: newsFeed,
+        webDevelopers: webDevelopers
+    });    
+    
+    for(var i = 0; i < norm.length; i++) {
+        console.log(norm[i].title + ' (' + norm[i].url + ')');
+    }
+
+It would then show this in the console.
+
+    New GCC compiler (http://reddit.com/)
+    MappaTesting.html:57Oliver Caldwell (http://flowdev.co.uk/)
+
 # Good things to map to
 
 I would recommend downloading the latest version of the following scripts and mapping to them.
